@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Scrape Lobsters newest page and display titles along with links
-## Requirements: curl, paste, pup
+## Requirements: curl, paste, pup, sed
 
 title_filter="pup 'span:nth-of-type(1) .u-url text{}'"
 url_filter="pup 'span:nth-of-type(1) .u-url attr{href}'"

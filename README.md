@@ -7,6 +7,7 @@ Dependencies:
 - curl
 - paste
 - pup: https://github.com/ericchiang/pup
+- sed
 
 ## Current Output
 
