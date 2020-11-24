@@ -11,14 +11,17 @@ Dependencies:
 ## Current Output
 
 ```
+How do people find bugs?
+https://cryptologie.net/article/511/how-do-people-find-bugs/
+
 Why AWS loves Rust, and how we’d like to help
 https://aws.amazon.com/blogs/opensource/why-aws-loves-rust-and-how-wed-like-to-help/
 
 Smithy ---  A tiny git forge written in Go
 https://github.com/honza/smithy
 
-Distributed Systems with Node.js: Building Enterprise-Ready Backend Services (2020, O&#39;Reilly)
-/s/2gvhvd/distributed_systems_with_node_js
+Distributed Systems with Node.js: Building Enterprise-Ready Backend Services (2020, O'Reilly)
+https://lobste.rs/s/2gvhvd/distributed_systems_with_node_js
 
 How to become an abstract thinker
 https://samuelpouyt.medium.com/how-to-become-an-abstract-thinker-e1b1dcaf174f
@@ -82,7 +85,4 @@ https://betterexplained.com/articles/intuitive-convolution/
 
 An opinionated list of best practices for textual websites
 https://seirdy.one/2020/11/23/website-best-practices.html
-
-MMU Virtualization via Intel EPT: Technical Details
-https://revers.engineering/mmu-ept-technical-details/
 ```
