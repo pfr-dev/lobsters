@@ -15,8 +15,7 @@ Dependencies:
 (new codeblock = screen cleared)
 
 ```
-Please enter your browser's binary (e.g. firefox -- if it's in your $PATH), or the full location of the binary (e.g. /opt/firefox/firefox): 
-Which page would you like to scrape (home/recent/newest)?
+Which page would you like to scrape (home/recent/newest)? newest
 ```
 
 ```
@@ -45,5 +44,11 @@ Which page would you like to scrape (home/recent/newest)?
 22 Back/forward cache
 23 You might not need machine learning
 24 What went wrong with the libdispatch. A tale of caution for the future of concurrency
-Select the article you would like to read:
+Select an article: 0
+What would you like to do (view/read)? 
+--------------------------------------
+VIEW: https://nothings.org/gamedev/rasterize/
+--------------------------------------
+READ: Please enter your browser's binary (e.g. firefox -- if it's in your $PATH), or the full location of the binary (e.g. /opt/firefox/firefox): firefox-nightly
+      [url opens in new tab in firefox]
 ```
