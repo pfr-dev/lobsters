@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Scrape Lobsters newest page and display titles along with links
-## Requirements: awk, curl, pup, sed, xargs
+## Requirements: awk, bash, curl, pup, sed, xargs
  
 read -p "Which page would you like to scrape (home/recent/newest)? " page
 
@@ -30,10 +30,16 @@ read -p "What would you like to do (view/read)? " action
 if [ "$action" = "view" ]; then
     echo "${url_array[$article]}"
 elif [ "$action" = "read" ]; then
-    read -p "Please enter your browser's binary (e.g. firefox -- if it's in your \$PATH), or the full location of the binary (e.g. /opt/firefox/firefox): " browser
-    if [[ "$browser" == *"firefox"* ]] || [[ "$browser" == *"palemoon"* ]]; then
-        eval "$browser --new-tab ${url_array[$article]}"
-    else
-        eval "$browser ${url_array[$article]}"
-    fi
+    if [ -n "$BROWSER" ]; then
+		$BROWSER "${url_array[$article]}"
+	elif type -P 'xdg-open'; then
+		xdg-open "${url_array[$article]}"
+	else
+		read -p "Please enter your browser's binary (e.g. firefox -- if it's in your \$PATH), or the full location of the binary (e.g. /opt/firefox/firefox): " browser
+        if [[ "$browser" == *"firefox"* ]] || [[ "$browser" == *"palemoon"* ]]; then
+            eval "$browser --new-tab ${url_array[$article]}"
+        else
+            eval "$browser ${url_array[$article]}"
+        fi	
+	fi
 fi

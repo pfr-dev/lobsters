@@ -5,6 +5,7 @@ A WIP CLI for https://lobster.rs.
 Dependencies:
 
 - awk
+- bash
 - curl
 - pup: https://github.com/ericchiang/pup
 - sed
