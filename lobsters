@@ -41,5 +41,5 @@ elif [ "$action" = "read" ]; then
         else
             eval "$browser ${url_array[$article]}"
         fi	
-	fi
+    fi
 fi
