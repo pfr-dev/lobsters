@@ -1,6 +1,6 @@
 # lobsters
 
-A WIP CLI for https://lobster.rs. Currently scrapes it's `/newest` page.
+A WIP CLI for https://lobster.rs.
 
 Dependencies:
 
