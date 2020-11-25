@@ -32,10 +32,10 @@ if [ "$action" = "view" ]; then
 elif [ "$action" = "read" ]; then
     if [ -n "$BROWSER" ]; then
         "$BROWSER" "${url_array[$article]}"
-	elif type -P 'xdg-open'; then
+    elif type -P 'xdg-open'; then
         xdg-open "${url_array[$article]}"
-	else
-		read -p "Please enter your browser's binary (e.g. firefox -- if it's in your \$PATH), or the full location of the binary (e.g. /opt/firefox/firefox): " browser
+    else
+        read -p "Please enter your browser's binary (e.g. firefox -- if it's in your \$PATH), or the full location of the binary (e.g. /opt/firefox/firefox): " browser
         if [[ "$browser" == *"firefox"* ]] || [[ "$browser" == *"palemoon"* ]]; then
             eval "$browser --new-tab ${url_array[$article]}"
         else
