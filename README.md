@@ -7,7 +7,7 @@ Dependencies:
 - awk
 - bash
 - curl
-- pup: https://github.com/ericchiang/pup
+- jq
 - sed
 - xargs
 
