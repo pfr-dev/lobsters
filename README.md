@@ -13,38 +13,32 @@ Dependencies:
 
 ## Current Output
 
-(new codeblock = screen cleared)
-
 ```
-Which page would you like to scrape (home/recent/newest)? newest
-```
-
-```
-0 How the stb_truetype Anti-Aliased Software Rasterizer v2 Works
-1 Learn Difficult Concepts with the ADEPT Method (2014)
-2 PAM Bypass: when null(is not)ok
-3 The story of the Aurora 7
-4 How do people find bugs?
-5 Why AWS loves Rust, and how we’d like to help
-6 Smithy ---  A tiny git forge written in Go
-7 Distributed Systems with Node.js: Building Enterprise-Ready Backend Services (2020, O'Reilly)
-8 How to become an abstract thinker
-9 Seastar: A C++ Asynchronous Programming Framework
-10 Performance tips for Typescript
-11 Conversation With a Slow Student (2005)
-12 Coroutines, exceptions, time-traveling search, generators and threads: Continuations by example
-13 Evaluating Precursor’s Hardware Security
-14 Exotic Programming Ideas: Part 3 (Effect Systems)
-15 Compact Raspberry Pi CM4 cluster module
-16 F# and Supercompilers, Round 2
-17 Cover Your Tracks -  See how trackers view your browser
-18 Digitizing Old 8mm Tapes
-19 Text based video chat via local face and speech recognition
-20 Vulkan implementation for Rasperry Pi 4 is now conformant
-21 FreeBSD Commands Cheat Sheet
-22 Back/forward cache
-23 You might not need machine learning
-24 What went wrong with the libdispatch. A tale of caution for the future of concurrency
+0 Prevent chromedp Chromium zombie processes from stacking
+1 archlinux:latest got broken on GitHub Actions
+2 What is a File? (2013)
+3 Manpages in color, and with links
+4 Julia 1.6: what has changed since Julia 1.0?
+5 Ripen scripting language
+6 Typing is Hard
+7 NattyNarwhal/LobstersNntp: Lobsters NNTP gateway
+8 Database as a Queue
+9 Physics-based proof of the duality theorem for linear programs
+10 The history of trackers
+11 cadgol -- a cad-native modeling language
+12 Code Signing for Java Applets (1997)
+13 Haskell Tutorial and Cookbook
+14 The GitHub Action mining attack through Pull Request
+15 Running a Secure RabbitMQ Cluster in Nomad (2019)
+16 S.O.L.I.D. principles around you (2017)
+17 Running Nomad for home server
+18 CJK computer science terms comparison
+19 Racket v8.0
+20 PyO3 to support Rust 1.41 to support Python's cryptography package
+21 The worst of the two worlds: Excel meets Outlook
+22 A Visual Git Reference
+23 Configure and extend Neovim with Fennel
+24 Dynamic Programming vs Divide-and-Conquer (2018)
 Select an article: 0
 What would you like to do (view/read)? 
 --------------------------------------
