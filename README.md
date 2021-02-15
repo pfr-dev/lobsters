@@ -1,6 +1,6 @@
 # lobsters
 
-A WIP CLI for https://lobster.rs.
+A WIP CLI for https://lobste.rs.
 
 Dependencies:
 
