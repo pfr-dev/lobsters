@@ -1,25 +1,15 @@
 #!/bin/bash
-## Scrape Lobsters newest page and display titles along with links
-## Requirements: awk, bash, curl, pup, sed, xargs
- 
-read -p "Which page would you like to scrape (home/recent/newest)? " page
+## A CLI for lobste.rs.
+## Requirements: awk, curl, jq, sed, xargs
+## Created by -- Phate6660 (phate)
 
-case "$page" in
-    "home") domain="https://lobste.rs";;
-    "recent") domain="https://lobste.rs/recent";;
-    "newest") domain="https://lobste.rs/newest";;
-esac
-
-title_filter="pup 'span:nth-of-type(1) .u-url text{}'"
-url_filter="pup 'span:nth-of-type(1) .u-url attr{href}'"
-sed_title_filter="sed -e \"s/&amp;#39;/'/g\" -e \"s/&amp;amp;/&/g\" -e \"s/â€™/'/g\" -e \"s/&#39;/'/g\""
-sed_url_filter="sed 's/\/s\//https:\/\/lobste\.rs\/s\//g'"
-
-titles="$(curl -s "$domain" | eval "$title_filter" | eval "$sed_title_filter")"
-urls="$(curl -s "$domain" | eval "$url_filter" | eval "$sed_url_filter")"
+json="$(curl -sSL https://lobste.rs/newest.json)"
+titles="$(echo "$json" | jq '.[].title')"
+titles="$(sed -e 's/^"//' -e 's/"$//' <<< "$titles")"
+urls="$(echo "$json" | jq '.[].comments_url')"
 
 urls_space_delimited="$(echo "$urls" | xargs)"
-read -a url_array <<< $urls_space_delimited
+read -a url_array <<< "$urls_space_delimited"
 
 clear
 echo "$titles" | awk '{print NR-1 " " $0}'
@@ -40,6 +30,6 @@ elif [ "$action" = "read" ]; then
             eval "$browser --new-tab ${url_array[$article]}"
         else
             eval "$browser ${url_array[$article]}"
-        fi	
+        fi  
     fi
 fi
