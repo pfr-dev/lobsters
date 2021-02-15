@@ -4,24 +4,25 @@
 ## Created by -- Phate6660 (phate)
 
 json="$(curl -sSL https://lobste.rs/newest.json)"
+sed_filter="sed -e 's/^\"//' -e 's/\"$//'"
 
 titles="$(jq '.[].title' <<< "$json")"
-titles="$(sed -e 's/^"//' -e 's/"$//' <<< "$titles")"
+titles="$(eval "$sed_filter" <<< "$titles")"
 
 article_urls="$(jq '.[].url' <<< "$json")"
-article_urls="$(sed -e 's/^"//' -e 's/"$//' <<< "$article_urls")"
+article_urls="$(eval "$sed_filter" <<< "$article_urls")"
 
 comment_urls="$(jq '.[].comments_url' <<< "$json")"
-comment_urls="$(sed -e 's/^"//' -e 's/"$//' <<< "$comment_urls")"
+comment_urls="$(eval "$sed_filter" <<< "$comment_urls")"
 
 comment_count="$(jq '.[].comment_count' <<< "$json")"
-comment_count="$(sed -e 's/^"//' -e 's/"$//' <<< "$comment_count")"
+comment_count="$(eval "$sed_filter" <<< "$comment_count")"
 
 article_urls_space_delimited="$(xargs <<< "$article_urls")"
 comment_urls_space_delimited="$(xargs <<< "$comment_urls")"
 comment_count_space_delimited="$(xargs <<< "$comment_count")"
 
-clear
+#clear
 
 read -a article_url_array <<< "$article_urls_space_delimited"
 read -a comment_url_array <<< "$comment_urls_space_delimited"
