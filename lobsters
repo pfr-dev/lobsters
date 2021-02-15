@@ -4,32 +4,43 @@
 ## Created by -- Phate6660 (phate)
 
 json="$(curl -sSL https://lobste.rs/newest.json)"
+
 titles="$(jq '.[].title' <<< "$json")"
 titles="$(sed -e 's/^"//' -e 's/"$//' <<< "$titles")"
-urls="$(jq '.[].comments_url' <<< "$json")"
 
-urls_space_delimited="$(xargs <<< "$urls")"
-read -a url_array <<< "$urls_space_delimited"
+article_urls="$(jq '.[].url' <<< "$json")"
+article_urls="$(sed -e 's/^"//' -e 's/"$//' <<< "$article_urls")"
+
+comment_urls="$(jq '.[].comments_url' <<< "$json")"
+comment_urls="$(sed -e 's/^"//' -e 's/"$//' <<< "$comment_urls")"
+
+article_urls_space_delimited="$(xargs <<< "$article_urls")"
+comment_urls_space_delimited="$(xargs <<< "$comment_urls")"
 
 clear
+
+read -a article_url_array <<< "$article_urls_space_delimited"
+read -a comment_url_array <<< "$comment_urls_space_delimited"
+
 awk '{print NR-1 " " $0}' <<< "$titles"
 
 read -p "Select an article: " article
 
-read -p "What would you like to do (view/read)? " action
+read -p "What would you like to do (view (will display links to the article and comments) / read (opens the article's link in your browser))? " action
 if [ "$action" = "view" ]; then
-    echo "${url_array[$article]}"
+    echo "Article: ${article_url_array[$article]}
+Comments: ${comment_url_array[$article]}"
 elif [ "$action" = "read" ]; then
     if [ -n "$BROWSER" ]; then
-        "$BROWSER" "${url_array[$article]}"
+        "$BROWSER" "${article_url_array[$article]}"
     elif type -P 'xdg-open'; then
-        xdg-open "${url_array[$article]}"
+        xdg-open "${article_url_array[$article]}"
     else
         read -p "Please enter your browser's binary (e.g. firefox -- if it's in your \$PATH), or the full location of the binary (e.g. /opt/firefox/firefox): " browser
         if [[ "$browser" == *"firefox"* ]] || [[ "$browser" == *"palemoon"* ]]; then
-            eval "$browser --new-tab ${url_array[$article]}"
+            eval "$browser --new-tab ${article_url_array[$article]}"
         else
-            eval "$browser ${url_array[$article]}"
+            eval "$browser ${article_url_array[$article]}"
         fi  
     fi
 fi
