@@ -42,7 +42,7 @@ Dependencies:
 Select an article: 0
 What would you like to do (view/read)? 
 --------------------------------------
-VIEW: https://nothings.org/gamedev/rasterize/
+VIEW: https://lobste.rs/s/pkl2sa/prevent_chromedp_chromium_zombie
 --------------------------------------
 READ: Please enter your browser's binary (e.g. firefox -- if it's in your $PATH), or the full location of the binary (e.g. /opt/firefox/firefox): firefox-nightly
       [url opens in new tab in firefox]
