@@ -14,22 +14,29 @@ article_urls="$(sed -e 's/^"//' -e 's/"$//' <<< "$article_urls")"
 comment_urls="$(jq '.[].comments_url' <<< "$json")"
 comment_urls="$(sed -e 's/^"//' -e 's/"$//' <<< "$comment_urls")"
 
+comment_count="$(jq '.[].comment_count' <<< "$json")"
+comment_count="$(sed -e 's/^"//' -e 's/"$//' <<< "$comment_count")"
+
 article_urls_space_delimited="$(xargs <<< "$article_urls")"
 comment_urls_space_delimited="$(xargs <<< "$comment_urls")"
+comment_count_space_delimited="$(xargs <<< "$comment_count")"
 
 clear
 
 read -a article_url_array <<< "$article_urls_space_delimited"
 read -a comment_url_array <<< "$comment_urls_space_delimited"
+read -a comment_count_array <<< "$comment_count_space_delimited"
 
 awk '{print NR-1 " " $0}' <<< "$titles"
 
+echo
 read -p "Select an article: " article
-
+echo
 read -p "What would you like to do (view (will display links to the article and comments) / read (opens the article's link in your browser))? " action
+
 if [ "$action" = "view" ]; then
-    echo "Article: ${article_url_array[$article]}
-Comments: ${comment_url_array[$article]}"
+    echo -e "\nArticle: ${article_url_array[$article]}
+Comments Page: ${comment_url_array[$article]} (${comment_count_array[$article]} comments)"
 elif [ "$action" = "read" ]; then
     if [ -n "$BROWSER" ]; then
         "$BROWSER" "${article_url_array[$article]}"

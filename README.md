@@ -39,11 +39,13 @@ Dependencies:
 22 The worst of the two worlds: Excel meets Outlook
 23 A Visual Git Reference
 24 Configure and extend Neovim with Fennel
+
 Select an article: 0
-What would you like to do (view (will display links to the article and comments) / read (opens the article's link in your browser))?
-______________________________________
+
+What would you like to do (view (will display links to the article and comments) / read (opens the article's link in your browser))? [view/read]
+--------------------------------------
 VIEW: Article: https://oldvcr.blogspot.com/2021/02/make-bebox-great-again-tls-12-inetd-and.html
-      Comments: https://lobste.rs/s/auu4v1/make_bebox_great_again_tls_1_2_inetd_more
+      Comments: https://lobste.rs/s/auu4v1/make_bebox_great_again_tls_1_2_inetd_more (0 comments)
 --------------------------------------
 READ: Please enter your browser's binary (e.g. firefox -- if it's in your $PATH), or the full location of the binary (e.g. /opt/firefox/firefox): firefox-nightly
       [url opens in new tab in firefox]
