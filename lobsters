@@ -4,15 +4,15 @@
 ## Created by -- Phate6660 (phate)
 
 json="$(curl -sSL https://lobste.rs/newest.json)"
-titles="$(echo "$json" | jq '.[].title')"
+titles="$(jq '.[].title' <<< "$json")"
 titles="$(sed -e 's/^"//' -e 's/"$//' <<< "$titles")"
-urls="$(echo "$json" | jq '.[].comments_url')"
+urls="$(jq '.[].comments_url' <<< "$json")"
 
-urls_space_delimited="$(echo "$urls" | xargs)"
+urls_space_delimited="$(xargs <<< "$urls")"
 read -a url_array <<< "$urls_space_delimited"
 
 clear
-echo "$titles" | awk '{print NR-1 " " $0}'
+awk '{print NR-1 " " $0}' <<< "$titles"
 
 read -p "Select an article: " article
 
