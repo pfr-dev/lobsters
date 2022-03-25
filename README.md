@@ -10,6 +10,7 @@ Dependencies:
 - jq
 - sed
 - xargs
+- w3m
 
 ## Current Output
 
