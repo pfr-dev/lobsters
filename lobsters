@@ -1,7 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ## A CLI for lobste.rs.
 ## Requirements: awk, curl, jq, sed, xargs
 ## Created by -- Phate6660 (phate)
+
+set -eu -o pipefail
 
 json="$(curl -sSL https://lobste.rs/newest.json)"
 sed_filter="sed -e 's/^\"//' -e 's/\"$//'"
@@ -22,7 +24,7 @@ article_urls_space_delimited="$(xargs <<< "$article_urls")"
 comment_urls_space_delimited="$(xargs <<< "$comment_urls")"
 comment_count_space_delimited="$(xargs <<< "$comment_count")"
 
-#clear
+clear
 
 read -a article_url_array <<< "$article_urls_space_delimited"
 read -a comment_url_array <<< "$comment_urls_space_delimited"
@@ -33,12 +35,19 @@ awk '{print NR-1 " " $0}' <<< "$titles"
 echo
 read -p "Select an article: " article
 echo
-read -p "What would you like to do (view (will display links to the article and comments) / read (opens the article's link in your browser))? " action
+read -p "What would you like to do:
 
-if [ "$action" = "view" ]; then
+1) Display URLs
+2) Open article in browser
+3) Read article in terminal
+4) Read comments in terminal (${comment_count_array[$article]} comments)
+
+>> " action
+
+if [ "$action" = "1" ]; then
     echo -e "\nArticle: ${article_url_array[$article]}
-Comments Page: ${comment_url_array[$article]} (${comment_count_array[$article]} comments)"
-elif [ "$action" = "read" ]; then
+Comments: ${comment_url_array[$article]} (${comment_count_array[$article]} comments)"
+elif [ "$action" = "2" ]; then
     if [ -n "$BROWSER" ]; then
         "$BROWSER" "${article_url_array[$article]}"
     elif type -P 'xdg-open'; then
@@ -49,6 +58,12 @@ elif [ "$action" = "read" ]; then
             eval "$browser --new-tab ${article_url_array[$article]}"
         else
             eval "$browser ${article_url_array[$article]}"
-        fi  
+        fi
     fi
+fi
+
+if [ "$action" = "3" ]; then
+    eval "w3m -dump ${article_url_array[$article]} | bat -p"
+elif [ "$action" = "4" ]; then
+    eval "w3m -dump ${comment_url_array[$article]} | bat -p"
 fi
