@@ -14,39 +14,40 @@ Dependencies:
 ## Current Output
 
 ```
-0 Make the BeBox great again: TLS 1.2, inetd and more for PowerPC BeOS R5
-1 Prevent chromedp Chromium zombie processes from stacking
-2 archlinux:latest got broken on GitHub Actions
-3 What is a File? (2013)
-4 Manpages in color, and with links
-5 Julia 1.6: what has changed since Julia 1.0?
-6 Ripen scripting language
-7 Typing is Hard
-8 NattyNarwhal/LobstersNntp: Lobsters NNTP gateway
-9 Database as a Queue
-10 Physics-based proof of the duality theorem for linear programs
-11 The history of trackers
-12 cadgol -- a cad-native modeling language
-13 Code Signing for Java Applets (1997)
-14 Haskell Tutorial and Cookbook
-15 The GitHub Action mining attack through Pull Request
-16 Running a Secure RabbitMQ Cluster in Nomad (2019)
-17 S.O.L.I.D. principles around you (2017)
-18 Running Nomad for home server
-19 CJK computer science terms comparison
-20 Racket v8.0
-21 PyO3 to support Rust 1.41 to support Python's cryptography package
-22 The worst of the two worlds: Excel meets Outlook
-23 A Visual Git Reference
-24 Configure and extend Neovim with Fennel
+0 What are you doing this weekend?
+1 The end of the nice GTK button
+2 Shrinkwrap: Taming dynamic shared objects
+3 Compiler Explorer
+4 On working through difficult problems
+5 Vale's Higher RAII, the pattern that saved me a vital 5 hours in the 7DRL Challenge
+6 ZFS Compatibility
+7 Dragonfire Internet Services: A Retrospective [2008]
+8 The Power, pt 1 OR How Plasmas Become Cat Pictures
+9 Benchmarking ORMs with realistic queries
+10 Epyx's Crush, Crumble, & Chomp
+11 Swapping two Numbers without Temporary Variables
+12 Abuse Of Some Sum Types In OO Languages
+13 Extracting Triangular 3D Models, Materials, and Lighting From Images
+14 Understanding The Dreamcast GD-ROM Layout
+15 Implementing a toy version of TLS 1.3
+16 The prevalence, persistence, and perils of lame delegations
+17 quadproj: a package for projecting a point onto a quadratic hypersurface
+18 Scripts to Rule Them All (2015)
+19 Benchmark of WebAssembly runtimes - 2021 Q1
+20 Functional Queues
+21 Mason jars
+22 AWS Graviton vs M1 vs M1 Pro Node.js Benchmarks
+23 Benchmarking AWS, Azure, & GCP in the 2021 Cloud Report
+24 Presenting DWD, a Candidate for KDE Window Decorations (2014)
 
 Select an article: 0
 
-What would you like to do (view (will display links to the article and comments) / read (opens the article's link in your browser))? [view/read]
---------------------------------------
-VIEW: Article: https://oldvcr.blogspot.com/2021/02/make-bebox-great-again-tls-12-inetd-and.html
-      Comments: https://lobste.rs/s/auu4v1/make_bebox_great_again_tls_1_2_inetd_more (0 comments)
---------------------------------------
-READ: Please enter your browser's binary (e.g. firefox -- if it's in your $PATH), or the full location of the binary (e.g. /opt/firefox/firefox): firefox-nightly
-      [url opens in new tab in firefox]
+What would you like to do:
+
+1) Display URLs
+2) Open article in browser
+3) Read article in terminal
+4) Read coments in terminal (0 comments)
+
+>>
 ```
