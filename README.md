@@ -11,6 +11,7 @@ Dependencies:
 - sed
 - xargs
 - w3m
+- bat
 
 ## Current Output
 
