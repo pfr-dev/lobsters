@@ -1,11 +1,26 @@
 #!/usr/bin/env bash
-## A CLI for lobste.rs.
-## Requirements: awk, curl, jq, sed, xargs
-## Created by -- Phate6660 (phate)
 
+## A CLI for https://lobste.rs
+## Requirements: awk, curl, jq, sed, xargs, w3m, bat
+## Created by -- Phate6660 (phate)
+## Forked and modified by pfr and still very much a WIP
+
+# keep it sane
 set -eu -o pipefail
 
-json="$(curl -sSL https://lobste.rs/newest.json)"
+# s/newest/active
+json="$(curl -sSL https://lobste.rs/active.json)"
+
+# TODO: Add the ability to go to next page
+# Preferably using the input 'next' instead of explicitly
+# selecting a page number. This will require some hacking.
+#page2="$(curl -sSL https://lobste.rs/active/page/2.json)"
+#page3="$(curl -sSL https://lobste.rs/active/page/3.json)"
+#page4="$(curl -sSL https://lobste.rs/active/page/4.json)"
+
+# TODO: Add the ability to switch between newest/active/recent
+
+
 sed_filter="sed -e 's/^\"//' -e 's/\"$//'"
 
 titles="$(jq '.[].title' <<< "$json")"
@@ -33,7 +48,14 @@ read -a comment_count_array <<< "$comment_count_space_delimited"
 awk '{print NR-1 " " $0}' <<< "$titles"
 
 echo
-read -p "Select an article: " article
+read -p "Select article: " article
+# TODO:
+#read -p "Select article:
+#Next Page
+#Show Newest
+#Show Recent
+#Show Active
+#>> " article, next, newest, recent, active
 echo
 read -p "What would you like to do:
 
@@ -53,8 +75,9 @@ elif [ "$action" = "2" ]; then
     elif type -P 'xdg-open'; then
         xdg-open "${article_url_array[$article]}"
     else
-        read -p "Please enter your browser's binary (e.g. firefox -- if it's in your \$PATH), or the full location of the binary (e.g. /opt/firefox/firefox): " browser
-        if [[ "$browser" == *"firefox"* ]] || [[ "$browser" == *"palemoon"* ]]; then
+        read -p "Please choose your browser (e.g. firefox) -- you may need to use the full path (e.g. /opt/firefox/firefox): " browser
+        if [[ "$browser" == *"firefox"* ]] || [[ "$browser" == *"chrome"* ]] || \
+            [[ "$browser" == *"opera"* ]] || [[ "$browser" == *"brave"* ]]; then
             eval "$browser --new-tab ${article_url_array[$article]}"
         else
             eval "$browser ${article_url_array[$article]}"
@@ -62,6 +85,7 @@ elif [ "$action" = "2" ]; then
     fi
 fi
 
+# Add the ability to view articles and comments in terminal using w3m
 if [ "$action" = "3" ]; then
     eval "w3m -dump ${article_url_array[$article]} | bat -p"
 elif [ "$action" = "4" ]; then
