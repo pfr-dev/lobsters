@@ -4,14 +4,14 @@ A WIP CLI for https://lobste.rs.
 
 Dependencies:
 
-- awk
-- bash
-- curl
-- jq
-- sed
-- xargs
-- w3m
-- bat
+- `awk`
+- `bash`
+- `curl`
+- `jq`
+- `sed`
+- `xargs`
+- `w3m`
+- `bat`
 
 ## Current Output
 
@@ -53,3 +53,8 @@ What would you like to do:
 
 >>
 ```
+
+## TODO
+-  Add function to choose next page
+-  Add function to select Active/Recent/Newest article filtering
+-  Return to article list after exiting `bat`
